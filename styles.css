@@ -1,0 +1,607 @@
+/*  Tables zum debuggen */
+.debug-form {
+  display: none;
+}
+
+
+
+:root {
+  /* colors */
+  --main: rgb(0, 6, 50);
+  --second: #b7bded;
+  --textColor: rgb(231, 233, 255);
+  --mainDark: rgb(0, 5, 46);
+
+
+  /*desktop sizes */
+
+  --title: 10rem;
+  --subTitle: 5rem;
+  --subSubTitle: 3rem;
+  --bigText: 2rem;
+
+  /* mobile sizes */
+
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+
+  font-family: "Kanit", sans-serif;
+  background-color: var(--main);
+
+  padding: 0 2rem;
+  color: var(--second);
+}
+
+.container {
+
+  max-width: 1400px;
+
+
+  grid-template-areas: "header"
+    "main"
+    "footer";
+
+  margin: auto;
+}
+
+/* Navbar */
+.header-container {
+  grid-area: header;
+
+  /* background-color: red; */
+
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--second);
+
+}
+
+nav>ul {
+  display: flex;
+  gap: 2rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.logo-a {
+  display: flex;
+
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 2rem;
+
+  color: var(--second);
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  top: 90%;
+  left: 0;
+  width: 0px;
+  height: 3px;
+  background-color: var(--textColor);
+  transition: width ease-in-out 250ms;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+.hamburger-icon {
+  display: none;
+
+}
+
+/* Navbar mobile/hamburger menu */
+
+.navbar-hamburger {
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 100;
+  top: 6%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: var(--main);
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+  list-style: none;
+  padding-left: 0;
+  gap: 1rem;
+}
+
+
+
+
+.navbar-hamburger a {
+  text-decoration: none;
+  font-size: 1.6rem;
+
+  color: var(--second);
+
+}
+
+.navbar-hamburger li {
+  border-bottom: 2px solid var(--second);
+}
+
+
+
+.nav_hamburger_dropdown_1 {
+  opacity: 0;
+  position: relative;
+  animation: dropdown 0.5s ease-in-out forwards;
+
+}
+
+.nav_hamburger_dropdown_2 {
+  opacity: 0;
+  position: relative;
+  animation: dropdown 0.5s ease-in-out 0.5s forwards;
+
+}
+
+.nav_hamburger_dropdown_3 {
+  opacity: 0;
+  position: relative;
+  animation: dropdown 0.5s ease-in-out 1s forwards;
+}
+
+
+
+
+
+/* main */
+
+.main-container {
+  grid-area: main;
+  margin-top: 2rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 10rem;
+  font-weight: 900;
+  margin: 0;
+  color: var(--second);
+}
+
+.slogan {
+  font-size: 5rem;
+  font-weight: 500;
+  margin-bottom: 0px;
+  line-height: 1;
+  margin-top: 0;
+}
+
+.graph-slogan {
+  font-size: 5rem;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+.start-quiz {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 1rem;
+  width: 100%;
+
+}
+
+
+.in-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-self: center;
+}
+
+
+.in-group label {
+  font-size: 2rem;
+}
+
+.in-group input,
+select {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--main);
+  height: 3rem;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0.2rem;
+  outline: none;
+  /* -webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none; */
+  background-color: var(--second);
+}
+
+.graph-hover:hover {
+  fill: rgb(3, 3, 151);
+}
+
+
+/* questions form */
+
+
+
+.questions {
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.question-text {
+  font-size: var(--subSubTitle);
+  text-align: center;
+}
+
+#form-check {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+
+}
+
+#form-check input {
+  visibility: hidden;
+}
+
+#form-check label {
+  /* background-color: #000; */
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+
+.form-check-label {
+  background-color: var(--mainDark);
+  font-size: var(--bigText);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 300px;
+  border-radius: 1rem;
+  border: 2px solid var(--second);
+}
+
+
+
+.form-check-label:has([type='checkbox']:checked) {
+  background-color: var(--second);
+  color: var(--main);
+}
+
+.form-check-label:has([type='radio']:checked) {
+  background-color: var(--second);
+  color: var(--main);
+}
+
+
+
+.btn-group {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.btn-group button {
+  font-size: var(--bigText);
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: var(--second);
+}
+
+/* footer */
+
+
+.footer-container {
+  grid-area: footer;
+}
+
+
+
+/* Report.php */
+
+/* Modal */
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: var(--main);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid --second;
+  border-radius: 1rem;
+  max-width: 400px;
+  width: 80%;
+  color: var(--second);
+}
+
+.modal-content label {
+  color: var(--second);
+  font-size: var(--bigText);
+}
+
+/* The Close Button */
+.close {
+  color: var(--second);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#report-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#report {
+  font-size: var(--bigText);
+}
+
+text {
+  fill: var(--second);
+}
+
+canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.report-title {
+  font-size: var(--subTitle);
+}
+
+.zeitschrift {
+  font-size: var(--subSubTitle);
+  text-align: center;
+}
+
+#report-upper {
+  display: flex;
+  flex-direction: column;
+}
+
+.schrift {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  align-self: center;
+  margin-top: 2rem;
+}
+
+#abbonieren {
+  font-size: var(--bigText);
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: var(--second);
+  /* width: max-content; */
+  align-self: center;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-right {
+    display: none;
+  }
+
+
+  .navbar-left {
+    display: flex;
+    gap: 0rem;
+    padding-left: 0;
+    list-style: none;
+
+  }
+
+  .navbar-left a {
+    font-size: 2rem;
+  }
+
+
+
+
+
+  .hamburger-icon {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 3rem;
+
+
+
+
+  }
+
+  .hamburger-icon span {
+    width: 100%;
+    height: 0.4rem;
+    background-color: var(--second);
+
+  }
+
+  .hamburger-icon:hover {
+    transform: scale(1.1);
+    transform-origin: 100% 100%;
+    cursor: pointer;
+
+  }
+
+
+  .slogan {
+    font-size: 2rem;
+    margin-bottom: 5rem;
+    margin-top: 0;
+    line-height: 1;
+  }
+
+  .graph-slogan {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .in-group {
+    width: 100%;
+
+
+  }
+
+  svg {
+    width: 300px;
+
+  }
+
+  .questions {
+    width: auto;
+    overflow: hidden;
+  }
+
+  main {
+    gap: 0;
+  }
+
+  .start-quiz {
+    max-width: 300px;
+  }
+
+
+  #report-container {
+    flex-direction: column;
+  }
+
+  canvas {
+    width: 80%;
+  }
+
+
+  .canvas-container {
+    width: 400px;
+  }
+
+
+}
+
+.error {
+  color: red !important;
+  font-size: var(--bigText);
+  margin: 0;
+
+}
+
+.info{
+  font-size: 1.6rem;
+  color: red !important;
+}
+
+/* dont show hamburger menu items incase you increase window width after clicking the hamburger symbol */
+@media screen and (min-width: 600px) {
+  .navbar-hamburger {
+    display: none;
+    z-index: -1;
+  }
+}
+
+/* Hamburger navbar items drop down */
+
+@keyframes dropdown {
+  from {
+    left: 200px;
+
+    opacity: 0;
+
+
+  }
+
+  to {
+    left: 0px;
+    opacity: 1;
+
+  }
+}
